@@ -1,0 +1,114 @@
+{
+    "7862ebae-ec70-4075-9734-45efd67bd94c": [
+        {
+            "role": "user",
+            "content": "What should an employee do if their company laptop stops working?"
+        },
+        {
+            "role": "assistant",
+            "content": "The available documents do not provide enough information regarding what an employee should do if their company laptop stops working."
+        },
+        {
+            "role": "user",
+            "content": "What should an employee do if their company laptop broke ?"
+        },
+        {
+            "role": "assistant",
+            "content": "The available documents do not provide enough information regarding what an employee should do if their company laptop is broken."
+        },
+        {
+            "role": "user",
+            "content": "What should an employee do if their company laptop broke ?"
+        },
+        {
+            "role": "assistant",
+            "content": "If an employee's company laptop is broken, they should report the accidental damage to the IT department. IT will assess the damage, and replacement is free for the first instance within a 36-month cycle. However, repeated damage may be referred to the line manager and Finance for cost recovery. \n\nFor further details, refer to the IT Support Policy, pages 3 and 4."
+        },
+        {
+            "role": "user",
+            "content": "What should an employee do if their company laptop broke ?"
+        },
+        {
+            "role": "assistant",
+            "content": "If an employee's company laptop is broken, they should report the accidental damage to the IT department. IT will assess the damage, and replacement is free for the first instance within a 36-month cycle. However, repeated damage may be referred to the line manager and Finance for cost recovery.\n\nFor further details, refer to the IT Support Policy, pages 3 and 4."
+        },
+        {
+            "role": "user",
+            "content": "What should an employee do if their company laptop broke ?"
+        },
+        {
+            "role": "assistant",
+            "content": "If an employee's company laptop is broken, they should report the accidental damage to the IT department. IT will assess the damage, and replacement is free for the first instance within a 36-month cycle. However, repeated damage may be referred to the line manager and Finance for cost recovery.\n\nFor further details, refer to the IT Support Policy, pages 3 and 4."
+        },
+        {
+            "role": "user",
+            "content": "What should an employee do if their company laptop broke?"
+        },
+        {
+            "role": "assistant",
+            "content": "The available documents do not provide enough information regarding what an employee should do if their company laptop is broken."
+        },
+        {
+            "role": "user",
+            "content": "What should an employee do if their company laptop broke?"
+        },
+        {
+            "role": "assistant",
+            "content": "The available documents do not provide enough information regarding what an employee should do if their company laptop is broken."
+        }
+    ],
+    "aqsa": [
+        {
+            "role": "user",
+            "content": "How many unused annual leave days can be carried forward?"
+        },
+        {
+            "role": "assistant",
+            "content": "A maximum of 5 unused annual leave days may be carried into the next calendar year. These carried-over days expire on 31 March, and any unused leave above this cap is forfeited and not paid out, except upon termination. \n\n(Source: HR_Policy_Handbook.pdf, Page 2)"
+        },
+        {
+            "role": "user",
+            "content": "How can employees reset their passwords?"
+        },
+        {
+            "role": "assistant",
+            "content": "Employees can reset their passwords through the self-service portal using multi-factor authentication (MFA). If MFA is unavailable, they must contact the Service Desk and verify their identity through their manager. Password reset requests are not accepted by email alone.\n\n(Source: IT_Support_Policy.pdf, Pages 2-3)"
+        },
+        {
+            "role": "user",
+            "content": "How do employees submit reimbursement claims?"
+        },
+        {
+            "role": "assistant",
+            "content": "Employees must submit reimbursement claims within 30 days of the expense date. Receipts are required for any single expense above $25. Late claims require CFO approval. Approved claims are reimbursed within 10 business days and are paid with the payroll run on the 25th of each month if approval is completed before the 15th.\n\n(Source: Finance_Policy.pdf, Pages 1-2)"
+        },
+        {
+            "role": "user",
+            "content": "What is the Finance reimbursement submission deadline?"
+        },
+        {
+            "role": "assistant",
+            "content": "The Finance reimbursement submission deadline is 30 days from the expense date. \n\n(Source: Finance_Policy.pdf, Page 1)"
+        }
+    ],
+    "user123": [
+        {
+            "role": "user",
+            "content": "What is the policy for sick leave?"
+        },
+        {
+            "role": "assistant",
+            "content": "The policy for sick leave states that employees receive 10 paid sick days per calendar year. A medical certificate is required for absences of more than 2 consecutive days. Additionally, employees must notify their manager before 09:30 on the first day of absence. \n\n(Source: HR_Policy_Handbook.pdf, Page 2)"
+        }
+    ],
+    "user2": [
+        {
+            "role": "user",
+            "content": "Employees receive 40 annual leave days, correct?"
+        },
+        {
+            "role": "assistant",
+            "content": "Employees receive 20 days of paid annual leave per calendar year, not 40 days. This information is detailed in the HR Policy Handbook on page 2."
+        }
+    ]
+}
