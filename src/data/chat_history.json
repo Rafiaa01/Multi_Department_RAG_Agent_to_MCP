@@ -55,6 +55,14 @@
         {
             "role": "assistant",
             "content": "The available documents do not provide enough information regarding what an employee should do if their company laptop is broken."
+        },
+        {
+            "role": "user",
+            "content": "What should an employee do if their company laptop broke?"
+        },
+        {
+            "role": "assistant",
+            "content": "If an employee's company laptop is broken, they should report the accidental damage to the IT department. IT will assess the damage, and replacement is free for the first instance within a 36-month cycle. However, if there is repeated damage, it may be referred to the line manager and Finance for cost recovery.\n\nFor further details, refer to the IT Support Policy, pages 3 and 4."
         }
     ],
     "aqsa": [
@@ -89,6 +97,54 @@
         {
             "role": "assistant",
             "content": "The Finance reimbursement submission deadline is 30 days from the expense date. \n\n(Source: Finance_Policy.pdf, Page 1)"
+        },
+        {
+            "role": "user",
+            "content": "How many unused annual leave days can be carried forward?"
+        },
+        {
+            "role": "assistant",
+            "content": "A maximum of 5 unused annual leave days may be carried forward into the next calendar year. These carried-over days will expire on 31 March, and any unused leave above this cap will be forfeited and not paid out, except upon termination.\n\n(Source: HR_Policy_Handbook.pdf, Page 2)"
+        },
+        {
+            "role": "user",
+            "content": "How can employees reset their passwords?"
+        },
+        {
+            "role": "assistant",
+            "content": "Employees can reset their passwords through the self-service portal using multi-factor authentication (MFA). If MFA is not available, they must contact the Service Desk and verify their identity through their manager. Password reset requests are not accepted via email alone.\n\n(Source: IT_Support_Policy.pdf, Pages 2-3)"
+        },
+        {
+            "role": "user",
+            "content": "How do employees submit reimbursement claims?"
+        },
+        {
+            "role": "assistant",
+            "content": "Employees must submit reimbursement claims within 30 days of the expense date. Receipts are required for any single expense above $25. Claims submitted after this deadline require CFO approval. Approved claims are reimbursed within 10 business days and are paid with the payroll run on the 25th of each month if approval is completed before the 15th.\n\n(Source: Finance_Policy.pdf, Pages 1-2)"
+        },
+        {
+            "role": "user",
+            "content": "How do employees submit reimbursement claims?"
+        },
+        {
+            "role": "assistant",
+            "content": "Employees must submit reimbursement claims within 30 days of the expense date. Receipts are required for any single expense above $25. Claims submitted after this deadline require CFO approval. Approved claims are reimbursed within 10 business days and are paid with the payroll run on the 25th of each month if approval is completed before the 15th.\n\n(Source: Finance_Policy.pdf, Pages 1-2)"
+        },
+        {
+            "role": "user",
+            "content": "What is the Finance reimbursement submission deadline?"
+        },
+        {
+            "role": "assistant",
+            "content": "The Finance reimbursement submission deadline is 30 days from the expense date.\n\n(Source: Finance_Policy.pdf, Page 1)"
+        },
+        {
+            "role": "user",
+            "content": "Section 3.3 IT Purchases: laptops, monitors and software licences must be purchased only through IT Support using the IT budget. Department budgets must not be used to buy IT equipment directly."
+        },
+        {
+            "role": "assistant",
+            "content": "It seems you are referencing a specific policy regarding IT purchases. Would you like me to confirm this information or provide additional details about IT purchases? Please clarify your request."
         }
     ],
     "user123": [
@@ -110,5 +166,6 @@
             "role": "assistant",
             "content": "Employees receive 20 days of paid annual leave per calendar year, not 40 days. This information is detailed in the HR Policy Handbook on page 2."
         }
-    ]
+    ],
+    "eaeaaf0d-790b-474f-a6e4-a20c4229ee41": []
 }

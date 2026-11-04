@@ -9,8 +9,11 @@ def load_history():
     if not HISTORY_FILE.exists():
         return {}
 
-    with open(HISTORY_FILE, "r", encoding="utf-8") as file:
-        return json.load(file)
+    try:
+        with open(HISTORY_FILE, "r", encoding="utf-8") as file:
+            return json.load(file)
+    except (json.JSONDecodeError, OSError):
+        return {}
 
 
 def save_history(sessions):

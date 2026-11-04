@@ -1,0 +1,19 @@
+{
+    "documents": {
+        "HR_Policy_Handbook.pdf": {
+            "hash": "2edf3a0dca58e7f1be21e80b9793ad045ad29bf3ee8fc9829a5146cb4d5dc130",
+            "chunk_ids": [
+                "4f671e31-99b0-488d-a00c-be7fb0cb5ff5",
+                "9e61e061-1644-4c2d-9e0b-702de8c3c438",
+                "9729f6d3-d704-4ae2-addb-f581e40fabe3",
+                "f82fddd5-ae0a-4cfc-967a-192ff6208866",
+                "48a5bca2-9ea9-49b4-85c2-3d5f9512e3c4",
+                "8a8322bb-dd08-4f21-9066-a4715d53cd72",
+                "5215aeff-b9d1-4a42-b6ea-ec6ba0b46e7f",
+                "219f1b1b-ad27-42b9-996e-42ed087b63a1",
+                "8f4f54ac-743a-4fb8-b20f-002104f9a87d",
+                "04ed4a75-8af1-4aac-ba28-d2c1aa20001c"
+            ]
+        }
+    }
+}

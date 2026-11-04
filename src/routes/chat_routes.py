@@ -35,8 +35,14 @@ def chat(request: ChatRequest):
     try:
         return handle_chat(request)
 
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=404,
+            detail=str(exc),
+        ) from exc
+
     except Exception as exc:
         raise HTTPException(
             status_code=500,
-            detail="An error occurred while processing your request."
+            detail="An error occurred while processing your request.",
         ) from exc
