@@ -1,12 +1,15 @@
-from src.rag.vector_store.store import create_department_vector_store
-from src.tools.it_tool import create_it_tool
 
-vector_store = create_department_vector_store("it")
+import asyncio
 
-it_tool = create_it_tool(vector_store)
+from src.agent.mcp_client import get_mcp_tools
 
-result = it_tool.invoke({
-    "query": "What should an employee do if their company laptop stops working?"
-})
 
-print(result)
+async def main():
+    tools = await get_mcp_tools()
+
+    for tool in tools:
+        print(tool.name)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

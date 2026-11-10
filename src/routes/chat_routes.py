@@ -27,13 +27,13 @@ def save_history(history):
 
 
 @router.get("/health")
-def health_check():
+async def health_check():
     return {"status": "ok"}
 
 @router.post("/chat", response_model=ChatResponse)
-def chat(request: ChatRequest):
+async def chat(request: ChatRequest):
     try:
-        return handle_chat(request)
+        return await handle_chat(request)
 
     except ValueError as exc:
         raise HTTPException(

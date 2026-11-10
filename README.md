@@ -1,215 +1,129 @@
-# Multi-Department RAG Agent
+# Multi-Department RAG Agent with MCP
 
-An intelligent internal assistant built with **Python, FastAPI, LangChain, and LLM-powered agents**. The assistant answers employee questions using separate HR, IT Support, and Finance policy documents. It dynamically selects the appropriate department tools, retrieves supporting evidence, performs safe calculations, and maintains conversation history.
+An intelligent internal knowledge assistant built using **Python, FastAPI, LangChain, FastMCP, and LLM-powered agents**.
 
-## 1. Project Overview
+The application answers employee questions using HR, IT Support, and Finance policy documents. It uses an agentic RAG architecture with independent MCP servers, allowing the AI agent to dynamically discover and execute department-specific tools.
 
-The Multi-Department RAG Agent provides a unified interface for employees to ask questions across different company departments.
+## Features
 
-Unlike a traditional RAG pipeline that follows a fixed retrieval process, this application uses an AI agent to decide which tools are required to answer a question.
+- **Multi-Department RAG:** Separate retrieval functionality for HR, IT, and Finance.
+- **MCP Integration:** Three independent FastMCP servers using Streamable HTTP transport.
+- **Dynamic Tool Discovery:** Uses `MultiServerMCPClient` to discover MCP tools.
+- **Agent-Based Routing:** LangChain agent selects appropriate tools based on user queries.
+- **Cross-Department Queries:** Supports questions requiring information from multiple departments.
+- **Safe Calculator:** Performs arithmetic without unrestricted `eval()`.
+- **Source Attribution:** Includes document filenames and page numbers.
+- **Conversation History:** Maintains contextual conversations using session IDs.
+- **Error Handling:** Handles retrieval errors and insufficient evidence.
 
-The agent can:
-
-- Retrieve information from HR policy documents.
-- Search IT Support documentation.
-- Retrieve Finance policy information.
-- Use multiple department tools for cross-department questions.
-- Perform arithmetic calculations using a safe calculator.
-- Ask follow-up questions when a request is ambiguous.
-- Maintain conversation history for contextual responses.
-- Provide document names and page numbers as evidence.
-- Handle missing information and tool execution errors.
-
-## 2. Key Features
-
-| Feature | Description |
-|---|---|
-| Multi-department RAG | Separate retrieval tools for HR, IT, and Finance. |
-| Agent-based routing | The agent selects the appropriate tool based on the user's question. |
-| Cross-department retrieval | Supports questions requiring evidence from multiple departments. |
-| Safe calculator | Performs arithmetic without unrestricted `eval()`. |
-| Source attribution | Includes document names and page numbers in factual answers. |
-| Relevance checking | Checks retrieved documents before using them as evidence. |
-| Clarification | Requests additional details when a question is ambiguous. |
-| Conversation history | Maintains context across follow-up questions. |
-| Error handling | Handles tool failures without crashing the application. |
-| Execution limits | Restricts repeated tool calls to prevent unnecessary execution. |
-
-## 3. Architecture
-
-The application follows an agentic RAG architecture.
+## Architecture
 
 ```text
-                  User Question
-                        |
-                        v
-                 FastAPI Endpoint
-                        |
-                        v
-                  AI Agent (LLM)
-                        |
-              Understand User Intent
-                        |
-           +------------+------------+
-           |            |            |
-           v            v            v
-        HR Tool       IT Tool     Finance Tool
-           |            |            |
-           v            v            v
-       HR Vector    IT Vector    Finance Vector
-        Store         Store        Store
-           |            |            |
-           +------------+------------+
-                        |
-                        v
-                Retrieved Evidence
-                        |
-                Relevance Checking
-                        |
-              +---------+---------+
-              |                   |
-              v                   v
-          Calculator        Missing/Weak
-              |               Evidence
-              |                   |
-              +---------+---------+
-                        |
-                        v
-                 Agent Generates
-                    Response
-                        |
-                        v
-              Sources and Page Numbers
-                        |
-                        v
-                 User Response
+             User Question
+                   |
+                   v
+            FastAPI Application
+                   |
+                   v
+             LangChain Agent
+                   |
+                   v
+          MultiServerMCPClient
+                   |
+          +--------+--------+
+          |        |        |
+          v        v        v
+        HR MCP   IT MCP  Finance MCP
+        :8001    :8002     :8003
+          |        |        |
+          v        v        v
+       HR RAG   IT RAG   Finance RAG
+          |        |        |
+          +--------+--------+
+                   |
+                   v
+           Retrieved Evidence
+                   |
+                   v
+           Generated Response
+                   |
+                   v
+             User Response
 ```
 
-## 4. Department Retrieval Tools
+## MCP Servers
 
-Each department has its own document collection and retrieval tool.
+| Server | Port | Tools |
+|---|---:|---|
+| HR | 8001 | `search_hr_documents` |
+| IT | 8002 | `search_it_documents` |
+| Finance | 8003 | `search_finance_documents`, `calculator` |
 
-### HR Department
+The main LangChain agent connects to all three servers through `MultiServerMCPClient` and dynamically registers their discovered tools.
 
-`search_hr_documents(query)`
+## Technology Stack
 
-Retrieves information related to:
+- Python and FastAPI
+- LangChain and LangChain Agents
+- FastMCP and `langchain-mcp-adapters`
+- OpenAI LLM and Embeddings
+- FAISS / Chroma
+- PyPDFLoader
+- RecursiveCharacterTextSplitter
+- Pydantic
+- Postman
 
-- Annual leave
-- Sick leave
-- Working hours
-- Remote work
-- Probation policies
+## Running the Application
 
-### IT Support Department
+Install dependencies:
 
-`search_it_documents(query)`
+```bash
+pip install -r requirements.txt
+```
 
-Retrieves information related to:
+Configure your `.env` file:
 
-- IT equipment
-- Laptop requests
-- Software installation
-- Technical support
-- Access and security policies
+```env
+OPENAI_API_KEY=your_openai_api_key
+OPENAI_MODEL=gpt-4o-mini
+```
 
-### Finance Department
+Start all three MCP servers and the FastAPI application together:
 
-`search_finance_documents(query)`
+```bash
+python run_all.py
+```
 
-Retrieves information related to:
+Alternatively, run each MCP server and Uvicorn separately.
 
-- Expense reimbursement
-- Department budgets
-- Purchase policies
-- Employee allowances
-- Financial approvals
+**Main API:** `http://127.0.0.1:8000`
 
-Each retrieval tool returns relevant document chunks along with their source document names and page metadata.
+**API Documentation:** `http://127.0.0.1:8000/docs`
 
-## 5. Safe Calculator Tool
+## Example API Request
 
-The application includes a calculator tool for arithmetic questions.
+**POST** `/chat`
 
-Examples:
+```json
+{
+    "session_id": "employee-001",
+    "message": "What is the annual leave policy?"
+}
+```
 
-- Calculate the total cost of multiple IT purchases.
-- Calculate an expense reimbursement amount.
-- Calculate the remaining budget after expenses.
+Use the same `session_id` for follow-up questions to maintain conversation context.
 
-The calculator uses restricted arithmetic operations rather than unrestricted Python `eval()`.
+## Testing
 
-## 6. Agent Decision-Making
+The application supports testing of:
 
-The agent determines which tools are required based on the user's request.
+- Department-specific document retrieval.
+- Multi-department queries.
+- Calculator operations.
+- Conversation history and follow-up questions.
+- Source attribution.
+- Insufficient evidence and tool error handling.
 
-For example:
+## MCP vs Direct Tool Integration
 
-| User question | Expected tool selection |
-|---|---|
-| How many annual leave days are allowed? | HR |
-| How can I request a laptop? | IT |
-| What is the reimbursement policy? | Finance |
-| Can I purchase a monitor using my department budget? | IT + Finance |
-| What is the total cost of three laptops at $800 each? | Calculator |
-| What is the company policy? | Ask for clarification |
-
-The agent can use multiple tools when a question requires information from different departments.
-
-## 7. Relevance Checking and Grounded Responses
-
-Retrieved documents are checked for relevance before being used to generate an answer.
-
-The application uses a retrieval threshold or relevance-checking mechanism to reduce irrelevant evidence.
-
-The agent follows these rules:
-
-- Answer factual questions using retrieved policy evidence.
-- Include source document names and page numbers.
-- Do not invent missing policy information.
-- Acknowledge when retrieved documents do not establish an answer.
-- Ask for clarification when the user's request is ambiguous.
-
-## 8. Conversation History
-
-The application maintains conversation history using session IDs.
-
-Each session stores its own conversation messages, allowing the agent to understand follow-up questions.
-
-Example:
-
-**First question:**
-
-"How can I request a company laptop?"
-
-**Follow-up question:**
-
-"Can I purchase it myself?"
-
-The agent uses the previous conversation to understand what "it" refers to and can retrieve relevant IT and Finance policies.
-
-## 9. Error Handling and Execution Limits
-
-The application includes safeguards to improve reliability:
-
-- Handle retrieval tool errors without terminating the application.
-- Handle calculator errors safely.
-- Return a controlled response when a tool fails.
-- Limit the number of agent tool calls per request.
-- Prevent unnecessary repeated retrieval calls.
-- Acknowledge when the available evidence is insufficient.
-
-## 10. Technology Stack
-
-| Technology | Purpose |
-|---|---|
-| Python | Application development |
-| FastAPI | REST API |
-| LangChain | Agent and RAG orchestration |
-| LLM | Reasoning and tool selection |
-| FAISS / Chroma | Vector storage and retrieval |
-| Embeddings | Convert policy documents into vectors |
-| PyPDFLoader | PDF document loading |
-| RecursiveCharacterTextSplitter | Document chunking |
-| Pydantic | Request and response validation |
-| Postman | API testing |
+Unlike direct LangChain tool integration, this implementation exposes department functionality through independent MCP servers. The main agent discovers and accesses these tools through a standardized MCP client interface, making the architecture more modular and extensible.

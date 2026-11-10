@@ -1,3 +1,4 @@
+
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -11,7 +12,10 @@ from src.services.agent_services import initialize_agent
 @asynccontextmanager
 async def lifespan(application: FastAPI):
 
-    agent = initialize_agent()
+    # Discover MCP tools and initialize the LangChain agent
+    agent = await initialize_agent()
+
+    # Make the initialized agent available to the controller
     set_agent(agent)
 
     yield

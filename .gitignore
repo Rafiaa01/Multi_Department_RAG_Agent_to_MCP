@@ -1,5 +1,5 @@
 .env
-.envv/
+.venv/
 __pycache__/
 *.pyc
-faiss_index/
+vector_stores/

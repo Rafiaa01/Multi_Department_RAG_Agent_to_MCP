@@ -145,6 +145,30 @@
         {
             "role": "assistant",
             "content": "It seems you are referencing a specific policy regarding IT purchases. Would you like me to confirm this information or provide additional details about IT purchases? Please clarify your request."
+        },
+        {
+            "role": "user",
+            "content": "How do employees submit reimbursement claims?"
+        },
+        {
+            "role": "assistant",
+            "content": "Employees must submit reimbursement claims within 30 days of the expense date. Receipts are required for any single expense above $25. Claims submitted after this deadline require CFO approval. Approved claims are reimbursed within 10 business days and are paid with the payroll run on the 25th of each month if approval is completed before the 15th.\n\n(Source: Finance_Policy.pdf, Pages 1-2)"
+        },
+        {
+            "role": "user",
+            "content": "How can employees reset their passwords?"
+        },
+        {
+            "role": "assistant",
+            "content": "Employees can reset their passwords through the self-service portal using multi-factor authentication (MFA). If MFA is not available, they must contact the Service Desk and verify their identity through their manager. Password reset requests are not accepted via email alone.\n\n(Source: IT_Support_Policy.pdf, Pages 2-3)"
+        },
+        {
+            "role": "user",
+            "content": "How many unused annual leave days can be carried forward?"
+        },
+        {
+            "role": "assistant",
+            "content": "A maximum of 5 unused annual leave days may be carried forward into the next calendar year. These carried-over days will expire on 31 March, and any unused leave above this cap will be forfeited and not paid out, except upon termination.\n\n(Source: HR_Policy_Handbook.pdf, Page 2)"
         }
     ],
     "user123": [
@@ -167,5 +191,90 @@
             "content": "Employees receive 20 days of paid annual leave per calendar year, not 40 days. This information is detailed in the HR Policy Handbook on page 2."
         }
     ],
-    "eaeaaf0d-790b-474f-a6e4-a20c4229ee41": []
+    "eaeaaf0d-790b-474f-a6e4-a20c4229ee41": [],
+    "test-001": [
+        {
+            "role": "user",
+            "content": "What is the annual leave policy?"
+        },
+        {
+            "role": "assistant",
+            "content": "The annual leave policy at Northwind Dynamics Ltd. is as follows:\n\n1. **Entitlement**: Full-time employees receive 20 days of paid annual leave per calendar year, accruing at a rate of 1.67 days per month of service. Part-time employees accrue leave on a pro-rated basis according to their contracted hours.\n\n2. **Request Process**: Leave must be requested at least 5 business days in advance and requires approval from the line manager.\n\n3. **Carry-Over**: A maximum of 5 unused annual leave days may be carried over into the next calendar year. These carried-over days will expire on March 31. Any unused leave beyond this cap is forfeited and not paid out, except upon termination of employment.\n\n4. **Probationary Employees**: Employees in their probation period accrue annual leave but may only take up to 5 days before completing their probation.\n\nFor further details, you can refer to the HR Policy Handbook (HR-POL-2026, Page 2)."
+        }
+    ],
+    "test-002": [
+        {
+            "role": "user",
+            "content": "What should I do if I forget my company password?"
+        },
+        {
+            "role": "assistant",
+            "content": "It appears that there are no specific documents available regarding the procedure for forgetting your company password. I recommend reaching out to your IT support team directly for assistance with password recovery or reset procedures."
+        }
+    ],
+    "test-003": [
+        {
+            "role": "user",
+            "content": "What are the rules for submitting travel expense claims?"
+        },
+        {
+            "role": "assistant",
+            "content": "The rules for submitting travel expense claims are as follows:\n\n1. **Claim Deadline**: Expense claims must be submitted within 30 days of the expense date. Late claims require CFO approval.\n\n2. **Receipts**: Receipts are required for any single expense above $25.\n\n3. **Per Diem and Travel Limits**:\n   - Domestic per diem (meals and incidentals): $60 per day.\n   - International per diem: $90 per day.\n   - Hotel expenses: Up to $180 per night.\n   - Personal car mileage: $0.60 per mile.\n   - Flights: Economy class for flights under 6 hours; premium economy is allowed for flights over 6 hours.\n\n4. **Reimbursement Timing**: Approved claims are reimbursed within 10 business days. Reimbursements are processed with the payroll run on the 25th of each month if approval is completed before the 15th.\n\n5. **Approval for High Claims**: Claims exceeding $500 require department head approval.\n\nThese guidelines ensure compliance and facilitate timely reimbursement for travel-related expenses. \n\n(Source: Finance_Policy.pdf, Pages 2-6)"
+        }
+    ],
+    "test-004": [
+        {
+            "role": "user",
+            "content": "Calculate 1250 multiplied by 4 and explain the result."
+        },
+        {
+            "role": "assistant",
+            "content": "The result of multiplying 1250 by 4 is 5000. This means that if you have 1250 units of something and you multiply that quantity by 4, you will have a total of 5000 units."
+        }
+    ],
+    "test-005": [
+        {
+            "role": "user",
+            "content": "Explain the company's remote work policy and whether employees can claim reimbursement for home office equipment."
+        },
+        {
+            "role": "assistant",
+            "content": "The company's remote work policy allows employees to work remotely up to three days per week under a hybrid model. For fully remote arrangements, written approval is required from both the line manager and the HR Director. Remote employees must also use the company VPN when accessing internal systems (HR_Policy_Handbook.pdf, page 3).\n\nRegarding reimbursement for home office equipment, employees approved for hybrid or remote work can claim a one-time home office stipend of $400. This stipend can be used for items such as a desk, chair, lighting, and a keyboard, but not for computers or monitors, which are provided by IT. Claims must be submitted through the expense portal with receipts within 60 days of approval, and the stipend can only be claimed once during an employee's tenure (Finance_Policy.pdf, pages 4-5)."
+        }
+    ],
+    "7f406693-338f-47c2-9c8f-c609dc8704d0": [],
+    "history-001": [
+        {
+            "role": "user",
+            "content": "What is the annual leave policy?"
+        },
+        {
+            "role": "assistant",
+            "content": "The annual leave policy at Northwind Dynamics Ltd. is as follows:\n\n1. **Entitlement**: Full-time employees receive 20 days of paid annual leave per calendar year, accruing at a rate of 1.67 days per month of service. Part-time employees accrue leave on a pro-rated basis according to their contracted hours.\n\n2. **Request Process**: Leave must be requested at least 5 business days in advance and requires approval from the line manager.\n\n3. **Carry-Over**: A maximum of 5 unused annual leave days may be carried over into the next calendar year. These carried-over days will expire on March 31. Any unused leave beyond this cap is forfeited and not paid out, except upon termination of employment.\n\n4. **Probationary Period**: Employees in their probationary period accrue annual leave but may only take up to 5 days before completing their probation.\n\nFor further details, you can refer to the HR Policy Handbook (HR_Policy_Handbook.pdf, pages 1-2)."
+        },
+        {
+            "role": "user",
+            "content": "Can you summarize that policy in simple words?"
+        },
+        {
+            "role": "assistant",
+            "content": "Sure! Here's a simple summary of the annual leave policy:\n\n1. **Days Off**: Full-time employees get 20 days of paid vacation each year, while part-time employees get a smaller amount based on their hours.\n\n2. **How to Request**: You need to ask for time off at least 5 days ahead of when you want to take it, and your manager has to approve it.\n\n3. **Carrying Over Days**: You can carry over up to 5 unused vacation days to the next year, but they will expire on March 31. If you don't use them, you lose them.\n\n4. **New Employees**: If you're still in your trial period, you can earn vacation days but can only take up to 5 days off before finishing that period.\n\nLet me know if you need more information!"
+        },
+        {
+            "role": "user",
+            "content": "What should I do if I forget my company password?"
+        },
+        {
+            "role": "assistant",
+            "content": "It appears that there are no specific documents available regarding the procedure for forgetting your company password. I recommend reaching out to your IT support team directly for assistance with resetting your password. They should be able to guide you through the process."
+        },
+        {
+            "role": "user",
+            "content": "How can employees reset their passwords?"
+        },
+        {
+            "role": "assistant",
+            "content": "Employees can reset their passwords by following these steps:\n\n1. **Self-Service Portal**: If your account is locked, you can unlock it through the self-service portal using Multi-Factor Authentication (MFA).\n\n2. **Contact IT Support**: If MFA is not available, you must contact the Service Desk and verify your identity through your manager. \n\n3. **Email Requests**: Note that password reset requests are never accepted by email alone.\n\nFor more details, you can refer to the IT Support Policy (IT_Support_Policy.pdf, pages 2-3)."
+        }
+    ]
 }

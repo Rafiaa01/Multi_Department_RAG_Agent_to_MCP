@@ -1,15 +1,19 @@
+
 from src.services.session_management import (
     get_or_create_session,
     update_session,
 )
 
 
-def chat_with_history(agent, request):
+async def chat_with_history(agent, request):
     history = get_or_create_session(request.session_id)
 
-    history.append({"role": "user", "content": request.message})
+    history.append({
+        "role": "user",
+        "content": request.message,
+    })
 
-    response = agent.invoke(
+    response = await agent.ainvoke(
         {"messages": history},
         config={"recursion_limit": 10},
     )
@@ -23,9 +27,15 @@ def chat_with_history(agent, request):
 
     answer = response["messages"][-1].content
 
-    history.append({"role": "assistant", "content": answer})
+    history.append({
+        "role": "assistant",
+        "content": answer,
+    })
 
     # Save updated conversation in JSON
     update_session(request.session_id, history)
 
-    return {"answer": answer, "history": history}
+    return {
+        "answer": answer,
+        "history": history,
+    }
